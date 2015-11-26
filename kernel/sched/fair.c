@@ -3145,12 +3145,12 @@ static unsigned int Larch_power = 0;
 
 void relay_gfs(unsigned int gfs)
 {
-	Lgentle_fair_sleepers = gfs;
+ Lgentle_fair_sleepers = gfs;
 }
 
 void relay_ap(unsigned int ap)
 {
-	Larch_power = ap;
+ Larch_power = ap;
 }
 
 static void
