@@ -140,6 +140,10 @@ config CPU_FREQ_DEFAULT_GOV_PEGASUSQ
 	help
 	Use the CPUFreq governor 'pegasusq' as default.
 
+config CPU_FREQ_DEFAULT_GOV_BLU_ACTIVE
+	bool "blu_active"
+	select CPU_FREQ_GOV_BLU_ACTIVE
+
 endchoice
 
 config CPU_FREQ_GOV_PERFORMANCE
@@ -255,6 +259,9 @@ config CPU_FREQ_GOV_SMARTMAX_EPS
 
 config CPU_FREQ_GOV_PEGASUSQ
 	tristate "'pegasusq' cpufreq policy governor"
+
+config CPU_FREQ_GOV_BLU_ACTIVE
+	tristate "'blu_active' cpufreq policy governor"
 
 config CPU_BOOST
 	tristate "Event base short term CPU freq boost"
