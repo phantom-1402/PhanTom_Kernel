@@ -381,20 +381,18 @@ int cpufreq_governor_dbs(struct cpufreq_policy *policy,
 		for_each_cpu(j, policy->cpus) {
 			struct cpu_dbs_common_info *j_cdbs =
 				dbs_data->cdata->get_cpu_cdbs(j);
+			unsigned int prev_load;
 
 			j_cdbs->cpu = j;
 			j_cdbs->cur_policy = policy;
 			j_cdbs->prev_cpu_idle = get_cpu_idle_time(j,
 					       &j_cdbs->prev_cpu_wall, io_busy);
-<<<<<<< HEAD
-=======
 
 			prev_load = (unsigned int)
 				(j_cdbs->prev_cpu_wall - j_cdbs->prev_cpu_idle);
 			j_cdbs->prev_load = 100 * prev_load /
 					(unsigned int) j_cdbs->prev_cpu_wall;
 
->>>>>>> 66ad2dd... cpufreq: governor: remove copy_prev_load from 'struct cpu_dbs_common_info'
 			if (ignore_nice)
 				j_cdbs->prev_cpu_nice =
 					kcpustat_cpu(j).cpustat[CPUTIME_NICE];
